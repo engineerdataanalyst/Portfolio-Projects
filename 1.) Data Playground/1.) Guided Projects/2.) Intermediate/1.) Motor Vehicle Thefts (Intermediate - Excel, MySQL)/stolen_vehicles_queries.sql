@@ -1,6 +1,6 @@
--- -----------------------------------------------------
--- Objective 1: Identify when vehicles were to be stolen
--- -----------------------------------------------------
+-- -----------------------------------------------
+-- Objective 1: Identify when vehicles were stolen
+-- -----------------------------------------------
 
 -- Find the total number of vehicles stolen each year
 SELECT
