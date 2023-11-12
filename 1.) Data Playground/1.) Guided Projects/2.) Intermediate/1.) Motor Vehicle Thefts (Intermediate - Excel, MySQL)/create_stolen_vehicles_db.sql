@@ -8,10 +8,10 @@ USE stolen_vehicles_db;
 
 CREATE TABLE IF NOT EXISTS make_details 
 (
-	make_id INT,
-	make_name VARCHAR(45),
-	make_type VARCHAR(45),
-	PRIMARY KEY (make_id)
+    make_id INT,
+    make_name VARCHAR(45),
+    make_type VARCHAR(45),
+    PRIMARY KEY (make_id)
 );
 
 --
@@ -20,12 +20,12 @@ CREATE TABLE IF NOT EXISTS make_details
 
 CREATE TABLE IF NOT EXISTS locations 
 (
-	location_id INT,
-	region VARCHAR(45),
-	country VARCHAR(45),
-	population INT,
-	density DECIMAL(5, 2),
-	PRIMARY KEY (location_id)
+    location_id INT,
+    region VARCHAR(45),
+    country VARCHAR(45),
+    population INT,
+    density DECIMAL(5, 2),
+    PRIMARY KEY (location_id)
 );
 
 --
@@ -34,17 +34,17 @@ CREATE TABLE IF NOT EXISTS locations
 
 CREATE TABLE IF NOT EXISTS stolen_vehicles
 (
-	vehicle_id INT,
-	vehicle_type VARCHAR(45),
-	make_id INT,
-	model_year INT,
-	vehicle_desc VARCHAR(45),
-	color VARCHAR(45),
-	date_stolen DATE,
-	location_id INT,
-	PRIMARY KEY (vehicle_id),
+    vehicle_id INT,
+    vehicle_type VARCHAR(45),
+    make_id INT,
+    model_year INT,
+    vehicle_desc VARCHAR(45),
+    color VARCHAR(45),
+    date_stolen DATE,
+    location_id INT,
+    PRIMARY KEY (vehicle_id),
     FOREIGN KEY (make_id) REFERENCES make_details(make_id),
-	FOREIGN KEY (location_id) REFERENCES locations(location_id)
+    FOREIGN KEY (location_id) REFERENCES locations(location_id)
 );
 
 --
