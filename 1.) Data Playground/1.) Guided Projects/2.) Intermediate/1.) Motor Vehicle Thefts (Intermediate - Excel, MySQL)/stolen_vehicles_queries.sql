@@ -82,7 +82,7 @@ FROM stolen_vehicles s
 LEFT JOIN locations l ON s.location_id = l.location_id
 WHERE s.vehicle_type IS NOT NULL
 GROUP BY
-	l.region,
+    l.region,
     l.population,
     l.density
 ORDER BY num_vehicles DESC;
