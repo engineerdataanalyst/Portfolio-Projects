@@ -1,0 +1,11 @@
+vehicle_type,standard,luxury,total
+Stationwagon,0.96,0.04,945
+Saloon,0.87,0.13,851
+Hatchback,0.97,0.03,644
+Trailer,1.00,0.00,582
+Utility,1.00,0.00,466
+Roadbike,0.99,0.01,297
+Moped,1.00,0.00,187
+"Light Van",0.99,0.01,154
+"Boat Trailer",1.00,0.00,105
+"Trailer - Heavy",1.00,0.00,90
