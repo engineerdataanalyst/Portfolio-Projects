@@ -56,8 +56,10 @@ ORDER BY num_vehicles DESC;
 -- values representing the total number of vehicles stolen
 SELECT
     s.vehicle_type,
-    ROUND(COUNT(CASE WHEN m.make_type = 'Standard' THEN s.vehicle_id ELSE NULL END)/COUNT(*), 2) AS standard,
-    ROUND(COUNT(CASE WHEN m.make_type = 'Luxury' THEN s.vehicle_id ELSE NULL END)/COUNT(*), 2) AS luxury,
+    ROUND(COUNT(CASE WHEN m.make_type = 'Standard' THEN s.vehicle_id ELSE NULL END)/
+	  COUNT(*), 2) AS standard,
+    ROUND(COUNT(CASE WHEN m.make_type = 'Luxury' THEN s.vehicle_id ELSE NULL END)/
+	  COUNT(*), 2) AS luxury,
     COUNT(*) AS total
 FROM stolen_vehicles s
 LEFT JOIN make_details m ON s.make_id = m.make_id
