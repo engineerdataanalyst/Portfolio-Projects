@@ -52,8 +52,8 @@ ORDER BY num_vehicles DESC;
 
 -- Create a pivot table with the following dimensions:
 -- rows representing the top 10 stolen vehicle types
--- columns representing the each make type ratio and total number of vehicles stolen
--- values representing the total number of vehicles stolen
+-- columns representing the make type ratio and the total number of stolen vehicles
+-- values representing the total number of stolen vehicles
 SELECT
     s.vehicle_type,
     ROUND(COUNT(CASE WHEN m.make_type = 'Standard' THEN s.vehicle_id ELSE NULL END)/
