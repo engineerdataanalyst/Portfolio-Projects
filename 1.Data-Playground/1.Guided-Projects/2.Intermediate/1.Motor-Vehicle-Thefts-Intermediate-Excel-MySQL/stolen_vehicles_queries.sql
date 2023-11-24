@@ -29,7 +29,7 @@ SELECT
         WHEN WEEKDAY(date_stolen) = 4 THEN 'Fri'
         WHEN WEEKDAY(date_stolen) = 5 THEN 'Sat'
         WHEN WEEKDAY(date_stolen) = 6 THEN 'Sun'
-	END AS day_of_week,
+    END AS day_of_week,
     COUNT(*) AS num_vehicles
 FROM stolen_vehicles
 WHERE vehicle_type IS NOT NULL
