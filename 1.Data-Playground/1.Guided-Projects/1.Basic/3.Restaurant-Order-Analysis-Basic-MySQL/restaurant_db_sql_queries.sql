@@ -1,6 +1,6 @@
--- ----------------------------
--- OBJECTIVE 1: Dish Statistics
--- ----------------------------
+-- ---------------
+-- Dish Statistics
+-- ---------------
 
 -- Find the number dishes and average dish price per dish category
 SELECT
@@ -54,9 +54,9 @@ FROM cte
 WHERE desc_rank_num = 1 OR
       asc_rank_num = 1;
 
--- -----------------------------
--- OBJECTIVE 2: Order Statistics
--- -----------------------------
+-- ----------------
+-- Order Statistics
+-- ----------------
 
 -- Find the number of orders and total revenue per dish category
 SELECT
