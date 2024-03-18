@@ -15,11 +15,11 @@ ORDER BY category;
 WITH cte AS
 (
     SELECT
-    name,
-    category,
-    price,
-    RANK() OVER(ORDER BY price DESC) AS desc_rank,
-    RANK() OVER(ORDER BY price) AS asc_rank
+	name,
+    	category,
+    	price,
+    	RANK() OVER(ORDER BY price DESC) AS desc_rank,
+    	RANK() OVER(ORDER BY price) AS asc_rank
     FROM dishes
 )
 SELECT
