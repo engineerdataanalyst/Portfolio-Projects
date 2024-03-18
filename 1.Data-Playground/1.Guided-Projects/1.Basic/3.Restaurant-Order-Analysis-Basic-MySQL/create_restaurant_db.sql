@@ -2,36 +2,39 @@ DROP SCHEMA IF EXISTS restaurant_db;
 CREATE SCHEMA restaurant_db;
 USE restaurant_db;
 
---
--- Table structure for table `order_details`
---
+-- -----------------------------------------
+-- Table structure for `order_details` table
+-- -----------------------------------------
 
-CREATE TABLE order_details (
-  order_details_id SMALLINT NOT NULL,
-  order_id SMALLINT NOT NULL,
-  order_date DATE,
-  order_time TIME,
-  item_id SMALLINT,
-  PRIMARY KEY (order_details_id)
+CREATE TABLE order_details
+(
+    order_details_id SMALLINT NOT NULL,
+    order_id SMALLINT NOT NULL,
+    order_date DATE,
+    order_time TIME,
+    item_id SMALLINT,
+    PRIMARY KEY (order_details_id)
 );
 
---
--- Table structure for table `menu_items`
---
+-- ----------------------------------
+-- Table structure for `dishes` table
+-- ----------------------------------
 
-CREATE TABLE menu_items (
-  menu_item_id SMALLINT NOT NULL,
-  item_name VARCHAR(45),
-  category VARCHAR(45),
-  price DECIMAL(5,2),
-  PRIMARY KEY (menu_item_id)
+CREATE TABLE dishes 
+(
+    dish_id SMALLINT NOT NULL,
+    dish_name VARCHAR(45),
+    category VARCHAR(45),
+    price DECIMAL(5,2),
+    PRIMARY KEY (dish_id)
 );
 
---
--- Insert data into table order_details
---
+-- ------------------------------------
+-- Insert data into order_details table
+-- ------------------------------------
 
-INSERT INTO order_details VALUES (1, 1, '2023-01-01', '11:38:36', 109),
+INSERT INTO order_details VALUES 
+(1, 1, '2023-01-01', '11:38:36', 109),
 (2, 2, '2023-01-01', '11:57:40', 108),
 (3, 2, '2023-01-01', '11:57:40', 124),
 (4, 2, '2023-01-01', '11:57:40', 117),
@@ -12266,11 +12269,12 @@ INSERT INTO order_details VALUES (1, 1, '2023-01-01', '11:38:36', 109),
 (12233, 5369, '2023-03-31', '22:05:04', 122),
 (12234, 5370, '2023-03-31', '22:15:48', 122);
 
---
--- Insert data into table menu_items
---
+-- -----------------------------
+-- Insert data into dishes table
+-- -----------------------------
 
-INSERT INTO menu_items VALUES (101, 'Hamburger', 'American', 12.95),
+INSERT INTO dishes VALUES
+(101, 'Hamburger', 'American', 12.95),
 (102, 'Cheeseburger', 'American', 13.95),
 (103, 'Hot Dog', 'American', 9),
 (104, 'Veggie Burger', 'American', 10.5),
