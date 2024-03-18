@@ -23,7 +23,7 @@ CREATE TABLE order_details
 CREATE TABLE dishes 
 (
     dish_id SMALLINT NOT NULL,
-    dish_name VARCHAR(45),
+    name VARCHAR(45),
     category VARCHAR(45),
     price DECIMAL(5,2),
     PRIMARY KEY (dish_id)
