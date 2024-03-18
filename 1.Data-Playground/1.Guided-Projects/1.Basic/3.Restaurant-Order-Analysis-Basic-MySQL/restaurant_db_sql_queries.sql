@@ -4,8 +4,8 @@
 
 -- Find the number dishes and average dish price per dish category
 SELECT
-	category,    
-	COUNT(*) AS num_dishes,
+    category,    
+    COUNT(*) AS num_dishes,
     ROUND(AVG(price), 2) AS avg_dish_price
 FROM dishes
 GROUP BY category
@@ -14,16 +14,16 @@ ORDER BY category;
 -- Find the least and most expensive dishes
 WITH cte AS
 (
-	SELECT
-		name,
-        category,
-        price,
-		RANK() OVER(ORDER BY price DESC) AS desc_rank,
-        RANK() OVER(ORDER BY price) AS asc_rank
- 	FROM dishes
+    SELECT
+    name,
+    category,
+    price,
+    RANK() OVER(ORDER BY price DESC) AS desc_rank,
+    RANK() OVER(ORDER BY price) AS asc_rank
+    FROM dishes
 )
 SELECT
-	name,
+    name,
     category,
     price
 FROM cte
@@ -33,11 +33,11 @@ WHERE desc_rank = 1 OR
 -- Find the least and most ordered dishes
 WITH cte AS
 (
-	SELECT
-		d.name,
+    SELECT
+        d.name,
         d.category,
         COUNT(*) AS num_orders,
-		SUM(d.price) AS total_revenue,
+	SUM(d.price) AS total_revenue,
         RANK() OVER(ORDER BY COUNT(*) DESC) AS desc_rank_num,
         RANK() OVER(ORDER BY COUNT(*)) AS asc_rank_num
 	FROM order_details o
@@ -46,13 +46,13 @@ WITH cte AS
     GROUP BY d.dish_id
 )
 SELECT
-	name,
+    name,
     category,
     num_orders,
     total_revenue
 FROM cte
 WHERE desc_rank_num = 1 OR
-	  asc_rank_num = 1;
+      asc_rank_num = 1;
 
 -- -----------------------------
 -- OBJECTIVE 2: Order Statistics
@@ -60,7 +60,7 @@ WHERE desc_rank_num = 1 OR
 
 -- Find the number of orders and total revenue per dish category
 SELECT
-	d.category,
+    d.category,
     COUNT(DISTINCT o.order_id) AS num_orders,
     SUM(d.price) AS total_revenue
 FROM order_details o
@@ -71,7 +71,7 @@ ORDER BY d.category;
 
 -- Find the number of orders made and total revenue for all dishes
 SELECT
-	COUNT(DISTINCT o.order_id) AS num_orders,
+    COUNT(DISTINCT o.order_id) AS num_orders,
     SUM(d.price) AS total_revenue
 FROM order_details o
 LEFT JOIN dishes d ON o.dish_id = d.dish_id
@@ -80,18 +80,18 @@ WHERE d.dish_id IS NOT NULL;
 -- Find the distribution of the number of dishes and total revenue per number of orders
 WITH cte AS
 (
-	SELECT
-		o.order_id,
+    SELECT
+        o.order_id,
         COUNT(*) AS num_dishes,
         SUM(d.price) AS total_revenue
     FROM order_details o
     LEFT JOIN dishes d ON o.dish_id = d.dish_id
     WHERE d.dish_id IS NOT NULL
-	GROUP BY o.order_id
+    GROUP BY o.order_id
 )
 SELECT
-	COUNT(*) AS num_orders,
-	num_dishes,
+    COUNT(*) AS num_orders,
+    num_dishes,
     SUM(total_revenue) AS total_revenue
 FROM cte
 GROUP BY num_dishes
